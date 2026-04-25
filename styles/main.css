@@ -1,21 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+
+body {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 150%;
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-areas: 
-    'header header'
-    'sidebar videos'
-    'footer footer';
+    grid-template-areas:
+        'header header'
+        'sidebar videos'
+        'footer footer';
     background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(149, 62, 149));
     color: whitesmoke;
     position: relative;
 }
-header{
+
+header {
     grid-area: header;
     display: flex;
     align-items: center;
@@ -23,24 +29,34 @@ header{
     border-bottom: 3px solid purple;
     color: whitesmoke;
     margin-bottom: 20px;
+    font-family: "Playwrite IE", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 260%;
 }
-header img{
+
+header img {
     border-radius: 50vh;
     padding: 1em;
 }
-#nav_list{
+
+#nav_list {
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
 }
-#nav_list ul{
+
+#nav_list ul {
     position: sticky;
     top: 20px;
 }
-#nav_list li{
+
+#nav_list li {
     margin-bottom: 20px;
 }
-#nav_list a{
+
+#nav_list a {
     display: block;
     background-color: rgb(23, 93, 198);
     color: black;
@@ -49,31 +65,64 @@ header img{
     text-decoration: none;
     transition: all ease-in-out 200ms;
 }
-#nav_list a:hover{
+
+#nav_list a:hover {
     background-color: black;
-    color: blue;
+    color: rgb(23, 93, 198);
 }
-section{
+
+section {
     max-width: 75%;
     margin: 0 auto;
 
 }
-main{
+
+main {
     grid-area: videos;
 }
-footer{
+
+#cornerBtn {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    right: 75px;
+    bottom: 75px;
+    z-index: 9999;
+    /* Make sure it does not overlap */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    transition: all ease-in-out 300ms;
+}
+
+
+#cornerBtn:hover {
+    background-color: rgb(23, 93, 198);
+}
+
+footer {
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid black;
+    padding: 1.5em;
+    font-size: 150%;
 }
 
 /* *************************************************************** vid settings ***************************************************************** */
 .videowrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     padding-top: 25px;
     height: 0;
     margin: 0 auto;
     border: none;
 }
+
 .videowrapper iframe {
     position: absolute;
     top: 0;
@@ -82,29 +131,42 @@ footer{
     height: 100%;
 }
 
-.caption{
+.caption {
     margin-top: 10px;
     border-left: 25px solid #2c43ba;
     padding-left: 10px;
     max-width: 75%;
+    margin-bottom: 30px;
 }
-article h4{
+
+article h4 {
     font-size: 200%;
 }
 
 
-@media (max-width: 767px){
-    #nav_list{
+@media (max-width: 767px) {
+    #nav_list {
         display: none;
     }
-    body{
+
+    body {
         grid-template-columns: 1fr;
-        grid-template-areas: 
-        'header'
-        'videos'
-        'footer';
+        grid-template-areas:
+            'header'
+            'videos'
+            'footer';
     }
-    section{
-        max-width: 100%;
+
+    header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 100%;
+    }
+    
+
+    section {
+        max-width: 95%;
     }
 }
